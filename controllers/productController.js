@@ -36,12 +36,17 @@ const creatProduct = (req, res) => {
   res.send({ success: "product created successfully" });
 };
 const creatVariant = async (req, res) => {
-  let { name, image, product } = req.body;
+  let {  color, storage, ram, size, image,price, quantity, product } = req.body;
 
   let variant = new Variant({
-    name,
-
+    
+    color,
+    storage,
+    ram,
+    size,
     image,
+    price,
+    quantity,
     product,
   });
   variant.save();
