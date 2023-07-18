@@ -36,15 +36,14 @@ const creatProduct = (req, res) => {
   res.send({ success: "product created successfully" });
 };
 const creatVariant = async (req, res) => {
-  let {  color, storage, ram, size, image,price, quantity, product } = req.body;
-
+  let { color, storage, ram, size, image, price, quantity, product } = req.body;
+  //console.log(req.file.filename);
   let variant = new Variant({
-    
     color,
     storage,
     ram,
     size,
-    image,
+    image: `${process.env.IMAGE_PATH}/uploads/${req.file.filename}`,
     price,
     quantity,
     product,
